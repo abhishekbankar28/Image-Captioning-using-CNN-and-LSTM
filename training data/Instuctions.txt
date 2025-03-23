@@ -1,0 +1,55 @@
+Recommended System Requirements to train model.
+
+A good CPU and a GPU with atleast 8GB memory
+Atleast 8GB of RAM
+Active internet connection so that keras can download inceptionv3/vgg16 model weights
+Required libraries for Python along with their version numbers used while making & testing of this project
+
+Python - 3.6.7
+Numpy - 1.16.4
+Tensorflow - 1.13.1
+Keras - 2.2.4
+nltk - 3.2.5
+PIL - 4.3.0
+Matplotlib - 3.0.3
+tqdm - 4.28.1
+
+Kaggle (Flickr8k Dataset):
+Download both images and captions from Kaggle:
+https://www.kaggle.com/datasets/adityajn105/flickr8k
+
+ Procedure to Train Model
+Clone the repository to preserve directory structure.
+Put the required dataset files in training data folder.
+Review config.py for paths and other configurations (explained below).
+Run training.py.
+5. Procedure to Test on new images
+Clone the repository to preserve directory structure.
+Train the model to generate required files in model_data folder 
+Put the test images in testing_data folder.
+Review config.py for paths and other configurations (explained below).
+Run testing.py.
+6. Configurations (config.py)
+
+config
+
+images_path :- Folder path containing flickr dataset images
+train_data_path :- .txt file path containing images ids for training
+val_data_path :- .txt file path containing imgage ids for validation
+captions_path :- .txt file path containing captions
+tokenizer_path :- path for saving tokenizer
+model_data_path :- path for saving files related to model
+model_load_path :- path for loading trained model
+num_of_epochs :- Number of epochs
+max_length :- Maximum length of captions. This is set manually after training of model and required for testing.py
+batch_size :- Batch size for training (larger will consume more GPU & CPU memory)
+beam_search_k :- BEAM search parameter which tells the algorithm how many words to consider at a time.
+test_data_path :- Folder path containing images for testing/inference
+model_type :- CNN Model type to use -> inceptionv3 or vgg16
+random_seed :- Random seed for reproducibility of results
+rnnConfig
+
+embedding_size :- Embedding size used in Decoder(RNN) Model
+LSTM_units :- Number of LSTM units in Decoder(RNN) Model
+dense_units :- Number of Dense units in Decoder(RNN) Model
+dropout :- Dropout probability used in Dropout layer in Decoder(RNN) Model
